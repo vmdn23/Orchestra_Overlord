@@ -1,0 +1,18 @@
+# Credentials
+**/*.properties
+**/*.ini
+**/*.config 
+**/*.props
+
+# IDE files
+*.iml
+.idea/
+
+# Compiled files
+*.tfstate*
+
+# Module directory
+.terraform/
+
+# Secrets
+*.tfvars*
