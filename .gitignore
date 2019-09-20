@@ -79,6 +79,8 @@ coverage/
 # Terraform Specific #
 #####################
 .terraform
-*.tfvars
-*.tfstate
+*.tfvars*
+*.tfstate*
 *.tfstate.backup
+./terraform/
+
