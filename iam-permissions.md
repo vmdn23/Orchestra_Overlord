@@ -78,6 +78,7 @@ Following IAM permissions are the minimum permissions needed for your IAM user o
                 "ec2:GetLaunchTemplateData",
                 "ec2:ModifyLaunchTemplate",
                 "ec2:RunInstances",
+		"ec2:*VpcEndpoint*",
                 "eks:CreateCluster",
                 "eks:DeleteCluster",
                 "eks:DescribeCluster",
