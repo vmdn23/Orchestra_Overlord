@@ -8,7 +8,7 @@
 #
 
 resource "aws_iam_role" "demo-node" {
-  name = "terraform-eks-demo-node"
+  name = "terraform-eks-dev-node"
 
   assume_role_policy = <<POLICY
 {
@@ -42,12 +42,12 @@ resource "aws_iam_role_policy_attachment" "demo-node-AmazonEC2ContainerRegistryR
 }
 
 resource "aws_iam_instance_profile" "demo-node" {
-  name = "terraform-eks-demo"
+  name = "terraform-eks-dev"
   role = "${aws_iam_role.demo-node.name}"
 }
 
 resource "aws_security_group" "demo-node" {
-  name        = "terraform-eks-demo-node"
+  name        = "terraform-eks-dev-node"
   description = "Security group for all nodes in the cluster"
   vpc_id      = "${aws_vpc.demo.id}"
 
@@ -58,9 +58,17 @@ resource "aws_security_group" "demo-node" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # SSH traffic in
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = "${
     map(
-     "Name", "terraform-eks-demo-node",
+     "Name", "terraform-eks-dev-node",
      "kubernetes.io/cluster/${var.cluster-name}", "owned",
     )
   }"
@@ -114,7 +122,8 @@ resource "aws_launch_configuration" "demo" {
   iam_instance_profile        = "${aws_iam_instance_profile.demo-node.name}"
   image_id                    = "${data.aws_ami.eks-worker.id}"
   instance_type               = "m4.large"
-  name_prefix                 = "terraform-eks-demo"
+  name_prefix                 = "terraform-eks-dev"
+  key_name                    = var.eks_key
   security_groups             = ["${aws_security_group.demo-node.id}"]
   user_data_base64            = "${base64encode(local.demo-node-userdata)}"
 
@@ -126,14 +135,14 @@ resource "aws_launch_configuration" "demo" {
 resource "aws_autoscaling_group" "demo" {
   desired_capacity     = 2
   launch_configuration = "${aws_launch_configuration.demo.id}"
-  max_size             = 2
-  min_size             = 1
-  name                 = "terraform-eks-demo"
+  max_size             = 3
+  min_size             = 2
+  name                 = "terraform-eks-dev"
   vpc_zone_identifier  = "${aws_subnet.demo[*].id}"
 
   tag {
     key                 = "Name"
-    value               = "terraform-eks-demo"
+    value               = "terraform-eks-dev"
     propagate_at_launch = true
   }
 
