@@ -1,6 +1,7 @@
 # Picture Upload
 
-This is a microservice application example that has be prebuilt by Linux Academyand will be used to demonstrate the monitoring and alerting services of Orchestra Overlord for learning purposes.
+This is a microservice application example that has be prebuilt by Linux Academy and will be used for learning purposes
+to demonstrate the monitoring and alerting services of Orchestra Overlord.
 
 It was a part of a multi-project repo of services that work together to form a demo to enable users to get and upload photos to Amazon S3.
 
