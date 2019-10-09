@@ -5,7 +5,7 @@ This repository contains information about the learning experience for Victor Ng
 ## Table of Contents
 
 1. [Introduction](README.md#introduction)
-2. [Execution] (README.md#execution)
+2. [Execution](README.md#execution)
 	* AWS Infrastructure
     * Picture Upload
 3. [Results]
