@@ -12,8 +12,9 @@ This repository contains information about the learning experience for Victor Ng
 3. [Results](README.md#results)
 	* Prometheus & Grafana
     * Alertmanager & Slack
-4. [Conclusion](README.md#conclusion)
-5. [Future Work](README.md#future-work)
+4. [Challenges](README.md#challenges)
+5. [Conclusion](README.md#conclusion)
+6. [Future Work](README.md#future-work)
     * Terraform & Terragrunt
     
 
@@ -38,7 +39,6 @@ After talking with engineers from Airbnb, Facebook and Airtable I was able to ge
 * NetworkUnavailable
 
 
-
 ### AWS Infrastructure 
 
 The project infrastructure was built out using amazon web services. 
@@ -56,7 +56,11 @@ Picture Upload is a microservice application example that was prebuilt by Linux 
 
 ## Results
 
-### Desired Metrics & Signals
+### Prometheus & Grafana
+
+By using Prometheus and Grafana, I was able to extract and display data from my application. There are various dashboards that users can pick. For future versions there will be a greater variety of custom dashboard that users will be able to choose from for their specific needs.
+
+![Fig 3: Picture Upload](/images/grafana_example.png)
 
 ### Alertmanager & Slack
 
