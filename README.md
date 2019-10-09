@@ -60,10 +60,13 @@ Picture Upload is a microservice application example that was prebuilt by Linux 
 
 By using Prometheus and Grafana, I was able to extract and display data from my application. There are various dashboards that users can pick. For future versions there will be a greater variety of custom dashboard that users will be able to choose from for their specific needs.
 
-![Fig 3: Picture Upload](/images/grafana_example.png)
+![Fig 3: Grafana](/images/grafana_example.png)
 
 ### Alertmanager & Slack
 
+The alertmanager component of the service will be added so that when a specified limit of a metric is reached a signal will be sent out to a user's slack account.
+
+![Fig 4: Slack Alert](/images/overlord_slack.png)
 
 ## Conclusion
 
