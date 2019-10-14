@@ -27,7 +27,7 @@ The objective of this project was to create a monitoring service that allows use
 
 ### Desired Metrics
 
-After talking with engineers from Airbnb, Facebook and Airtable I was able to get a better idea of what would be some desirable metrics o keep track of.
+After talking with engineers from Airbnb, Facebook and Airtable I was able to get a better idea of what would be some desirable metrics to keep track of.
 * NodeStatus
 * Desired pods vs Currents pods
 * Pod capacity
