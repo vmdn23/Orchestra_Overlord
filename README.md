@@ -68,6 +68,13 @@ The alertmanager component of the service will be added so that when a specified
 
 ![Fig 4: Slack Alert](/images/overlord_slack.png)
 
+
+## Challenges
+* Connecting Alertmanager to Prometheus
+* Saving Grafana presistent data 
+* Allowing proper IAM permissions for EKS worker nodes to execute deployment
+* Updating security group permissions and allow proper port connections for the application 
+
 ## Conclusion
 
 For this project, I was able to learn how to create AWS infrastructure, deploy a microservice application using EKS, and use Prometheus & Grafana to create a monitoring services that can observe my desired metrics as well as display them with visual graphics. 
